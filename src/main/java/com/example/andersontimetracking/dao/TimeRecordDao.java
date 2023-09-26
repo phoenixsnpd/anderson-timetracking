@@ -17,7 +17,7 @@ public class TimeRecordDao {
 
     public List<TimeRecord> getAllRecords() {
         List<TimeRecord> records = new ArrayList<>();
-        String getAllSql = "SELECT date, name, description, totaltime FROM timerecords";
+        String getAllSql = "SELECT date, name, description, total_time FROM timerecords";
         try(Connection connection = connector.getConnection();
             PreparedStatement statement = connection.prepareStatement(getAllSql)) {
             ResultSet resultSet = statement.executeQuery();
@@ -36,7 +36,7 @@ public class TimeRecordDao {
     }
 
     public void addRecord(TimeRecord record) {
-        String addRecordSql = "INSERT INTO timerecords VALUES (?, ?, ?, ?)";
+        String addRecordSql = "INSERT INTO timerecords(date, name, description, total_time) VALUES (?, ?, ?, ?)";
         Date sqlDate = Date.valueOf(record.getDate());
         try(Connection connection = connector.getConnection();
             PreparedStatement statement = connection.prepareStatement(addRecordSql)) {
