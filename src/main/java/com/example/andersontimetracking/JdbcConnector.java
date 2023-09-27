@@ -8,8 +8,8 @@ public class JdbcConnector {
     public Connection getConnection()  {
         try {
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("uri",
-                    "user", "password");
+            return DriverManager.getConnection("jdbc:postgresql://34.107.60.170:5432/taskmanagerdb",
+                    "admin", "AndersenProject2023");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);
         }
