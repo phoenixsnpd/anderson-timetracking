@@ -15,7 +15,7 @@ public class TimeRecordPdfConverter {
     }
 
     public void convertRecordDBToPdfFile() {
-        List<TimeRecord> records = recordDao.getAllRecords();
-        generator.generatePdf(records);
+        //List<TimeRecord> records = recordDao.getAllRecords();
+        //generator.generatePdf(records);
     }
 }

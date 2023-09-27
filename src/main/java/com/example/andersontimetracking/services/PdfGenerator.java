@@ -1,6 +1,7 @@
 package com.example.andersontimetracking.services;
 
-import com.example.andersontimetracking.models.TimeRecord;
+import com.example.andersontimetracking.models.Task;
+import com.example.andersontimetracking.models.User;
 import org.apache.pdfbox.pdmodel.PDDocument;
 import org.apache.pdfbox.pdmodel.PDPage;
 import org.apache.pdfbox.pdmodel.PDPageContentStream;
@@ -8,10 +9,11 @@ import org.apache.pdfbox.pdmodel.common.PDRectangle;
 import org.apache.pdfbox.pdmodel.font.PDType1Font;
 
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.List;
 
 public class PdfGenerator {
-    public void generatePdf(List<TimeRecord> records) {
+    public void generatePdf(List<User> users) {
         try (PDDocument document = new PDDocument()) {
             PDPage page = new PDPage(PDRectangle.A4);
             document.addPage(page);
@@ -23,7 +25,13 @@ public class PdfGenerator {
                 int rowsPerPage = 10;
                 int numRows = 0;
 
-                for (TimeRecord record : records) {
+                contentStream.beginText();
+                contentStream.newLineAtOffset(margin, yPosition);
+                contentStream.showText("Date: " + LocalDate.now());
+                contentStream.endText();
+
+                yPosition -= 20;
+                for (User user : users) {
                     if (numRows == rowsPerPage) {
                         contentStream.close();
                         PDPage newPage = new PDPage(PDRectangle.A4);
@@ -38,27 +46,18 @@ public class PdfGenerator {
 
                     contentStream.beginText();
                     contentStream.newLineAtOffset(margin, yPosition);
-                    contentStream.showText("Date: " + record.getDate());
+                    contentStream.showText(user.getName() + " " + user.getSurname());
                     contentStream.endText();
                     yPosition -= 20;
 
-                    contentStream.beginText();
-                    contentStream.newLineAtOffset(margin, yPosition);
-                    contentStream.showText("Name: " + record.getName());
-                    contentStream.endText();
-                    yPosition -= 20;
 
-                    contentStream.beginText();
-                    contentStream.newLineAtOffset(margin, yPosition);
-                    contentStream.showText("Description: " + record.getDescription());
-                    contentStream.endText();
-                    yPosition -= 20;
-
-                    contentStream.beginText();
-                    contentStream.newLineAtOffset(margin, yPosition);
-                    contentStream.showText("Total Time: " + record.getTotalTime());
-                    contentStream.endText();
-                    yPosition -= 20;
+                    for (Task task : user.getTasks()) {
+                        contentStream.beginText();
+                        contentStream.newLineAtOffset(margin, yPosition);
+                        contentStream.showText("Task description: " + task.getDescription());
+                        contentStream.endText();
+                        yPosition -= 20;
+                    }
 
                     numRows++;
                 }

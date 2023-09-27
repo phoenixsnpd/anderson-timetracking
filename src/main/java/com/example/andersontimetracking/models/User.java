@@ -1,15 +1,18 @@
 package com.example.andersontimetracking.models;
 
+import java.util.List;
+
 public class User {
     private int id;
     private String name;
     private String surname;
     private String password;
+    private List<Task> tasks;
 
-    public User(String name, String surname, String password) {
+    public User(int id, String name, String surname) {
+        this.id = id;
         this.name = name;
         this.surname = surname;
-        this.password = password;
     }
 
     public User(String name, String surname) {
@@ -49,12 +52,19 @@ public class User {
         this.password = password;
     }
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
+
     @Override
     public String toString() {
         return "User{" +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
-                ", password='" + password + '\'' +
                 '}';
     }
 }
