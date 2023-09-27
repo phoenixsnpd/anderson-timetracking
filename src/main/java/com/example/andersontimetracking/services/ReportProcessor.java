@@ -2,8 +2,8 @@ package com.example.andersontimetracking.services;
 
 import com.example.andersontimetracking.dao.TaskDao;
 import com.example.andersontimetracking.dao.UserDao;
-import com.example.andersontimetracking.models.Task;
 import com.example.andersontimetracking.models.User;
+import org.apache.pdfbox.pdmodel.PDDocument;
 
 import java.util.List;
 
@@ -18,9 +18,10 @@ public class ReportProcessor {
         pdfGenerator = new PdfGenerator();
     }
 
-    public void generateReport() {
+    public PDDocument generateReport() {
         List<User> users = getReportFromBase();
-        pdfGenerator.generatePdf(users);
+        var report = pdfGenerator.generateReport(users);
+        return report;
     }
 
     public List<User> getReportFromBase() {

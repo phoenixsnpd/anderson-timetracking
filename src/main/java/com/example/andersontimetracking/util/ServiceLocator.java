@@ -1,7 +1,9 @@
 package com.example.andersontimetracking.util;
 
 import com.example.andersontimetracking.interfaces.EmailService;
+import com.example.andersontimetracking.interfaces.ReportGenerator;
 import com.example.andersontimetracking.services.EmailServiceImpl;
+import com.example.andersontimetracking.services.PdfGenerator;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -11,6 +13,7 @@ public final class ServiceLocator {
 
     static{
         services.put(EmailService.class, EmailServiceImpl.class);
+        services.put(ReportGenerator.class, PdfGenerator.class);
     }
     private ServiceLocator(){
 

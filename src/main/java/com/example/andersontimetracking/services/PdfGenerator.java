@@ -1,5 +1,6 @@
 package com.example.andersontimetracking.services;
 
+import com.example.andersontimetracking.interfaces.ReportGenerator;
 import com.example.andersontimetracking.models.Task;
 import com.example.andersontimetracking.models.User;
 import org.apache.pdfbox.pdmodel.PDDocument;
@@ -12,9 +13,9 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.List;
 
-public class PdfGenerator {
-    public void generatePdf(List<User> users) {
-        try (PDDocument document = new PDDocument()) {
+public class PdfGenerator implements ReportGenerator<PDDocument> {
+    public PDDocument generateReport(List<User> users) {
+        try {PDDocument document = new PDDocument();
             PDPage page = new PDPage(PDRectangle.A4);
             document.addPage(page);
 
@@ -62,10 +63,12 @@ public class PdfGenerator {
                     numRows++;
                 }
             }
+            return document;
+            //document.save("report.pdf");
 
-            document.save("report.pdf");
         } catch (IOException e) {
             e.printStackTrace();
         }
+        return null;
     }
 }
