@@ -19,14 +19,15 @@ public class UserDao {
 
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<>();
-        String getUsersSql = "SELECT name, surname FROM users";
+        String getUsersSql = "SELECT id, name, surname FROM users";
         try(Connection connection = connector.getConnection();
             PreparedStatement statement = connection.prepareStatement(getUsersSql)) {
             ResultSet resultSet = statement.executeQuery();
             while (resultSet.next()) {
+                int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
                 String surname = resultSet.getString("surname");
-                User user = new User(name, surname);
+                User user = new User(id, name, surname);
                 users.add(user);
             }
         } catch (SQLException e) {

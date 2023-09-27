@@ -50,7 +50,6 @@ public class Task {
     public String toString() {
         return "Task{" +
                 "description='" + description + '\'' +
-                ", date=" + date +
                 '}';
     }
 }
