@@ -2,12 +2,20 @@ package com.example.andersontimetracking.servlets;
 
 import java.io.*;
 
+import com.example.andersontimetracking.interfaces.EmailService;
+import com.example.andersontimetracking.util.ServiceLocator;
 import jakarta.servlet.http.*;
 import jakarta.servlet.annotation.*;
 
 @WebServlet(name = "helloServlet", value = "/hello-servlet")
 public class HelloServlet extends HttpServlet {
+    private final EmailService emailService;
     private String message;
+
+    public HelloServlet() {
+        this.emailService = ServiceLocator.getServiceImpl(EmailService.class);
+        emailService.sendMail();
+    }
 
     public void init() {
         message = "Hello my dear fullstack :P";
