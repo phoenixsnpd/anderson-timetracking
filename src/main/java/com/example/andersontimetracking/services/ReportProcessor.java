@@ -1,8 +1,12 @@
 package com.example.andersontimetracking.services;
 
-import com.example.andersontimetracking.dao.TaskDao;
-import com.example.andersontimetracking.dao.UserDao;
+import com.example.andersontimetracking.dao.TaskDaoImpl;
+import com.example.andersontimetracking.dao.UserDaoImpl;
+import com.example.andersontimetracking.interfaces.ReportGenerator;
+import com.example.andersontimetracking.interfaces.TaskDao;
+import com.example.andersontimetracking.interfaces.UserDao;
 import com.example.andersontimetracking.models.User;
+import com.example.andersontimetracking.util.ServiceLocator;
 import org.apache.pdfbox.pdmodel.PDDocument;
 
 import java.util.List;
@@ -10,17 +14,17 @@ import java.util.List;
 public class ReportProcessor {
     private UserDao userDao;
     private TaskDao taskDao;
-    private PdfGenerator pdfGenerator;
+    private ReportGenerator reportGenerator;
 
     public ReportProcessor() {
-        userDao = new UserDao();
-        taskDao = new TaskDao();
-        pdfGenerator = new PdfGenerator();
+        userDao = ServiceLocator.getServiceImpl(UserDao.class);
+        taskDao = ServiceLocator.getServiceImpl(TaskDao.class);
+        reportGenerator = ServiceLocator.getServiceImpl(ReportGenerator.class);
     }
 
     public PDDocument generateReport() {
         List<User> users = getReportFromBase();
-        var report = pdfGenerator.generateReport(users);
+        var report = (PDDocument) reportGenerator.generateReport(users);
         return report;
     }
 

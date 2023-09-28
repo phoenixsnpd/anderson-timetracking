@@ -1,20 +1,23 @@
 package com.example.andersontimetracking.dao;
 
-import com.example.andersontimetracking.JdbcConnector;
+import com.example.andersontimetracking.interfaces.Connector;
+import com.example.andersontimetracking.interfaces.TaskDao;
 import com.example.andersontimetracking.models.Task;
+import com.example.andersontimetracking.util.ServiceLocator;
 
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class TaskDao {
-    private final JdbcConnector connector;
+public class TaskDaoImpl implements TaskDao {
+    private final Connector connector;
 
-    public TaskDao() {
-        connector = new JdbcConnector();
+    public TaskDaoImpl() {
+         connector = ServiceLocator.getServiceImpl(Connector.class);
     }
 
+    @Override
     public List<Task> getAllTasksByUserID(int userID) {
         List<Task> userTasks = new ArrayList<>();
         String getUserTasksSql = "SELECT description, date FROM tasks WHERE userid = ?";
@@ -34,6 +37,7 @@ public class TaskDao {
         return userTasks;
     }
 
+    @Override
     public void addTask(Task task) {
         String addTaskSql = "INSERT INTO tasks(userid, description, date) VALUES (?,?,?)";
         Date sqlDate = Date.valueOf(task.getDate());
