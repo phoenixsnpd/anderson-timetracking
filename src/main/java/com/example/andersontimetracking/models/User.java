@@ -1,5 +1,6 @@
 package com.example.andersontimetracking.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class User {
@@ -8,6 +9,8 @@ public class User {
     private String surname;
     private String password;
     private List<Task> tasks;
+
+
 
     public User(int id, String name, String surname) {
         this.id = id;
@@ -18,6 +21,10 @@ public class User {
     public User(String name, String surname) {
         this.name = name;
         this.surname = surname;
+    }
+
+    public User() {
+        tasks = new ArrayList<>();
     }
 
     public int getId() {
