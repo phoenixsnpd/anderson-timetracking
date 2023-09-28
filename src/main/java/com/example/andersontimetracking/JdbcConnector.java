@@ -1,10 +1,13 @@
 package com.example.andersontimetracking;
 
+import com.example.andersontimetracking.interfaces.Connector;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class JdbcConnector {
+public class JdbcConnector implements Connector {
+    @Override
     public Connection getConnection()  {
         try {
             Class.forName("org.postgresql.Driver");
