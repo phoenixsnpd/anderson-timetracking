@@ -20,6 +20,14 @@ public class ReportProcessor {
         reportGenerator = ServiceLocator.getServiceImpl(ReportGenerator.class);
     }
 
+    public ReportProcessor(UserDao userDao, TaskDao taskDao, ReportGenerator<PDDocument> reportGenerator, UserDao userDao1, TaskDao taskDao1, ReportGenerator<PDDocument> reportGenerator1) {
+        this.userDao = userDao1;
+        this.taskDao = taskDao1;
+        this.reportGenerator = reportGenerator1;
+    }
+
+
+
     public PDDocument generateReport() {
         List<User> users = getReportFromBase();
         return reportGenerator.generateReport(users);
