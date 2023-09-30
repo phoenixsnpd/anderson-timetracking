@@ -9,10 +9,13 @@ import jakarta.servlet.annotation.WebListener;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
+import java.util.TimeZone;
+
 @WebListener
 public class EmailSchedulerListener implements ServletContextListener {
     private Scheduler emailScheduler;
     private Scheduler telegramBotScheduler;
+
     @Override
     public void contextInitialized(ServletContextEvent sce) {
         CustomTelegramBot bot = new CustomTelegramBot();
@@ -31,7 +34,8 @@ public class EmailSchedulerListener implements ServletContextListener {
 
         Trigger triggerBot = TriggerBuilder.newTrigger()
                 .withIdentity("TelegramTrigger")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 18 * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 20 * * ?")
+                        .inTimeZone(TimeZone.getTimeZone("Etc/GMT-3")))
                 .build();
 
 
@@ -40,17 +44,18 @@ public class EmailSchedulerListener implements ServletContextListener {
                 .build();
         Trigger trigger = TriggerBuilder.newTrigger()
                 .withIdentity("EmailTrigger")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 23 * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 20 * * ?")
+                        .inTimeZone(TimeZone.getTimeZone("Etc/GMT-3")))
                 .build();
 
-        try{
+        try {
             emailScheduler = new StdSchedulerFactory().getScheduler();
             emailScheduler.start();
-            emailScheduler.scheduleJob(jobDetail,trigger);
+            emailScheduler.scheduleJob(jobDetail, trigger);
 
             telegramBotScheduler = new StdSchedulerFactory().getScheduler();
             telegramBotScheduler.start();
-            telegramBotScheduler.scheduleJob(jobDetailBot,triggerBot);
+            telegramBotScheduler.scheduleJob(jobDetailBot, triggerBot);
 
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
