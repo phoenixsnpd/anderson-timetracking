@@ -2,8 +2,10 @@ package com.example.andersontimetracking.util;
 
 import com.example.andersontimetracking.JdbcConnector;
 import com.example.andersontimetracking.dao.TaskDaoImpl;
+import com.example.andersontimetracking.dao.TelegramChatDaoImpl;
 import com.example.andersontimetracking.dao.UserDaoImpl;
 import com.example.andersontimetracking.interfaces.*;
+import com.example.andersontimetracking.models.TelegramChat;
 import com.example.andersontimetracking.services.EmailServiceImpl;
 import com.example.andersontimetracking.services.PdfGenerator;
 
@@ -19,6 +21,7 @@ public final class ServiceLocator {
         services.put(Connector.class, JdbcConnector.class);
         services.put(TaskDao.class, TaskDaoImpl.class);
         services.put(UserDao.class, UserDaoImpl.class);
+        services.put(TelegramChatDao.class, TelegramChatDaoImpl.class);
 
     }
     private ServiceLocator(){

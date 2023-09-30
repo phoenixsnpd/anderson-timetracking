@@ -11,7 +11,7 @@ public class JdbcConnector implements Connector {
     public Connection getConnection()  {
         try {
             Class.forName("org.postgresql.Driver");
-            return DriverManager.getConnection("jdbc:postgresql://34.107.60.170:5432/taskmanagerdb",
+            return DriverManager.getConnection("jdbc:postgresql://34.159.59.142:5432/taskmanagerdb",
                     "admin", "AndersenProject2023");
         } catch (SQLException | ClassNotFoundException e) {
             throw new RuntimeException(e);

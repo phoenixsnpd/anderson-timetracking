@@ -1,6 +1,7 @@
 package com.example.andersontimetracking.scheduler;
 
 import com.example.andersontimetracking.interfaces.EmailService;
+import com.example.andersontimetracking.services.CustomTelegramBot;
 import com.example.andersontimetracking.util.ServiceLocator;
 import jakarta.servlet.ServletContextEvent;
 import jakarta.servlet.ServletContextListener;
@@ -10,8 +11,30 @@ import org.quartz.impl.StdSchedulerFactory;
 
 @WebListener
 public class EmailSchedulerListener implements ServletContextListener {
+    private Scheduler emailScheduler;
+    private Scheduler telegramBotScheduler;
     @Override
     public void contextInitialized(ServletContextEvent sce) {
+        CustomTelegramBot bot = new CustomTelegramBot();
+        new Thread(() -> {
+            bot.startLongPolling();
+        }).start();
+
+        JobDataMap jobDataMap = new JobDataMap();
+        jobDataMap.put("bot", bot);
+
+
+        JobDetail jobDetailBot = JobBuilder.newJob(TelegramSenderJob.class)
+                .usingJobData(jobDataMap)
+                .withIdentity("TelegramBotJob")
+                .build();
+
+        Trigger triggerBot = TriggerBuilder.newTrigger()
+                .withIdentity("TelegramTrigger")
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 0 18 * * ?"))
+                .build();
+
+
         JobDetail jobDetail = JobBuilder.newJob(EmailSenderJob.class)
                 .withIdentity("EmailJob")
                 .build();
@@ -21,9 +44,14 @@ public class EmailSchedulerListener implements ServletContextListener {
                 .build();
 
         try{
-            Scheduler scheduler = new StdSchedulerFactory().getScheduler();
-            scheduler.start();
-            scheduler.scheduleJob(jobDetail,trigger);
+            emailScheduler = new StdSchedulerFactory().getScheduler();
+            emailScheduler.start();
+            emailScheduler.scheduleJob(jobDetail,trigger);
+
+            telegramBotScheduler = new StdSchedulerFactory().getScheduler();
+            telegramBotScheduler.start();
+            telegramBotScheduler.scheduleJob(jobDetailBot,triggerBot);
+
         } catch (SchedulerException e) {
             throw new RuntimeException(e);
         }
