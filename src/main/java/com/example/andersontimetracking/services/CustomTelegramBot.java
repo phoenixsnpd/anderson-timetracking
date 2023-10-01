@@ -123,8 +123,8 @@ public class CustomTelegramBot {
                 List<TelegramChatDTO> replyChats = findLastUpdates(responseBody, lastUpdateIdWrapper);
 
                 for (TelegramChatDTO chat : replyChats) {
-                    sendMessage(String.valueOf(chat.getChatId()), String.format("Hello Mr. %s, I Am just a simple bot, I can't process your request... But I will send you " +
-                                                                                "Report from Orange team in PDF format at 23:00 UTC+3. Thanks for your patience.", chat.getUserName()));
+                    sendMessage(String.valueOf(chat.getChatId()), String.format("Hello  Mr. %s, I Am just a simple bot, I can't process your request... But I will send you " +
+                                                                                "Report from Orange team in PDF format at 23:00 UTC+3. Thanks for your patience!", chat.getUserName()));
                 }
             }
             try {
