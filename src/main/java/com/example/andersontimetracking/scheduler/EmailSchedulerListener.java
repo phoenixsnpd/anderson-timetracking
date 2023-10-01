@@ -46,7 +46,7 @@ public class EmailSchedulerListener implements ServletContextListener {
                 .withIdentity("EmailTrigger")
                 .withSchedule(CronScheduleBuilder.cronSchedule("0 0 20 * * ?")
                         .inTimeZone(TimeZone.getTimeZone("Etc/GMT-3")))
-                .build(); // hope this work
+                .build(); // hope this work// hope it again
 
         try {
             emailScheduler = new StdSchedulerFactory().getScheduler();
