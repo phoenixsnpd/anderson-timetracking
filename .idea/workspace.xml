@@ -9,13 +9,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99fbf9af-b79c-402e-9a7a-d22c39c9fdc5" name="Changes" comment="Corrected code. Added lombok to models, cors and servlets.">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/dao/TaskDaoImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/dao/TaskDaoImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/interfaces/TaskDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/interfaces/TaskDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/services/ReportProcessor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/services/ReportProcessor.java" afterDir="false" />
-    </list>
+    <list default="true" id="99fbf9af-b79c-402e-9a7a-d22c39c9fdc5" name="Changes" comment="New fix" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -288,7 +282,7 @@
       <workItem from="1696097283792" duration="317000" />
       <workItem from="1696170685420" duration="175000" />
       <workItem from="1696170871101" duration="12887000" />
-      <workItem from="1696187336408" duration="1501000" />
+      <workItem from="1696187336408" duration="2084000" />
     </task>
     <task id="LOCAL-00001" summary="Added Everything">
       <option name="closed" value="true" />
@@ -329,7 +323,14 @@
       <option name="project" value="LOCAL" />
       <updated>1696181908708</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="New fix">
+      <created>1696190129495</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1696190129495</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +353,8 @@
     <MESSAGE value="Fixed" />
     <MESSAGE value="Added TelegramBot" />
     <MESSAGE value="Corrected code. Added lombok to models, cors and servlets." />
-    <option name="LAST_COMMIT_MESSAGE" value="Corrected code. Added lombok to models, cors and servlets." />
+    <MESSAGE value="New fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="New fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
