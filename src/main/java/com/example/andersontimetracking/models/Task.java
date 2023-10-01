@@ -1,48 +1,26 @@
 package com.example.andersontimetracking.models;
 
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.experimental.FieldDefaults;
+
 import java.time.LocalDate;
 
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Getter
+@Setter
+@NoArgsConstructor
 public class Task {
-    private int id;
-    private int userId;
-    private String description;
-    private LocalDate date;
+    int id;
+    int userId;
+    String description;
+    LocalDate date;
 
     public Task(int userId, String description, LocalDate date) {
         this.userId = userId;
         this.description = description;
-        this.date = date;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public LocalDate getDate() {
-        return date;
-    }
-
-    public void setDate(LocalDate date) {
         this.date = date;
     }
 
