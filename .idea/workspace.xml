@@ -9,7 +9,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99fbf9af-b79c-402e-9a7a-d22c39c9fdc5" name="Changes" comment="New fix" />
+    <list default="true" id="99fbf9af-b79c-402e-9a7a-d22c39c9fdc5" name="Changes" comment="Fix">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/scheduler/EmailSchedulerListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/example/andersontimetracking/scheduler/EmailSchedulerListener.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,9 +59,9 @@
     <option name="version" value="2" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 7
-}</component>
+    &quot;customColor&quot;: &quot;&quot;,
+    &quot;associatedIndex&quot;: 7
+    }</component>
   <component name="ProjectId" id="2VzUPI89Ubow6i8GisoK3b2QmlD" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="1" id="Add" />
@@ -68,7 +71,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
+    &quot;keyToString&quot;: {
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
@@ -83,13 +86,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.project.maven.repository.indices&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
-  },
-  &quot;keyToStringList&quot;: {
+    },
+    &quot;keyToStringList&quot;: {
     &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+    &quot;postgresql&quot;
     ]
-  }
-}</component>
+    }
+    }</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="com.example.andersontimetracking.services" />
@@ -154,7 +157,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tomcat " type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 10.0.27" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+    <configuration name="Tomcat " type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat " ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
       <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
       <option name="UPDATING_POLICY" value="restart-server" />
       <deployment>
@@ -281,8 +284,11 @@
       <workItem from="1696096504798" duration="153000" />
       <workItem from="1696097283792" duration="317000" />
       <workItem from="1696170685420" duration="175000" />
-      <workItem from="1696170871101" duration="12887000" />
-      <workItem from="1696187336408" duration="2084000" />
+      <workItem from="1696170871101" duration="8318000" />
+      <workItem from="1696183501324" duration="117000" />
+      <workItem from="1696183629883" duration="202000" />
+      <workItem from="1696183843897" duration="130000" />
+      <workItem from="1696188634412" duration="990000" />
     </task>
     <task id="LOCAL-00001" summary="Added Everything">
       <option name="closed" value="true" />
@@ -316,19 +322,21 @@
       <option name="project" value="LOCAL" />
       <updated>1696096592522</updated>
     </task>
-    <task id="LOCAL-00005" summary="Corrected code. Added lombok to models, cors and servlets.">
-      <created>1696181908708</created>
+    <task id="LOCAL-00005" summary="Added TelegramBot">
+      <option name="closed" value="true" />
+      <created>1696183745469</created>
       <option name="number" value="00005" />
       <option name="presentableId" value="LOCAL-00005" />
       <option name="project" value="LOCAL" />
-      <updated>1696181908708</updated>
+      <updated>1696183745469</updated>
     </task>
-    <task id="LOCAL-00006" summary="New fix">
-      <created>1696190129495</created>
+    <task id="LOCAL-00006" summary="Fix">
+      <option name="closed" value="true" />
+      <created>1696188659270</created>
       <option name="number" value="00006" />
       <option name="presentableId" value="LOCAL-00006" />
       <option name="project" value="LOCAL" />
-      <updated>1696190129495</updated>
+      <updated>1696188659270</updated>
     </task>
     <option name="localTasksCounter" value="7" />
     <servers />
@@ -349,12 +357,10 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added Everything" />
-    <MESSAGE value="Fix" />
     <MESSAGE value="Fixed" />
     <MESSAGE value="Added TelegramBot" />
-    <MESSAGE value="Corrected code. Added lombok to models, cors and servlets." />
-    <MESSAGE value="New fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="New fix" />
+    <MESSAGE value="Fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
