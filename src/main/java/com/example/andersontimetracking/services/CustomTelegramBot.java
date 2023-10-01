@@ -128,7 +128,7 @@ public class CustomTelegramBot {
                 }
             }
             try {
-                Thread.sleep(200);
+                Thread.sleep(1000);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
