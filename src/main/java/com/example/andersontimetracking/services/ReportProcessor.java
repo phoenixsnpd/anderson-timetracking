@@ -25,10 +25,10 @@ public class ReportProcessor {
         return reportGenerator.generateReport(users);
     }
 
-    public List<User> getReportFromBase() {
+    private List<User> getReportFromBase() {
         List<User> users = userDao.getAllUsers();
         for (User user : users) {
-            user.setTasks(taskDao.getAllTasksByUserID(user.getId()));
+            user.setTasks(taskDao.getAllTasksByUserIDAndCurrentDate(user.getId()));
         }
         return users;
     }
