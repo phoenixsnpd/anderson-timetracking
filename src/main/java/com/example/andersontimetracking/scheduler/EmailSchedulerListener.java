@@ -34,7 +34,7 @@ public class EmailSchedulerListener implements ServletContextListener {
 
         Trigger triggerBot = TriggerBuilder.newTrigger()
                 .withIdentity("TelegramTrigger")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 30 20 * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 40 20 * * ?"))
                 .build();
 
 
@@ -43,7 +43,7 @@ public class EmailSchedulerListener implements ServletContextListener {
                 .build();
         Trigger trigger = TriggerBuilder.newTrigger()
                 .withIdentity("EmailTrigger")
-                .withSchedule(CronScheduleBuilder.cronSchedule("0 30 20 * * ?"))
+                .withSchedule(CronScheduleBuilder.cronSchedule("0 40 20 * * ?"))
                 .build(); // hope this work// hope it again
 
         try {
