@@ -11,4 +11,6 @@ public interface TaskDao {
     void removeTask(int id);
     List<Post> getAllTask(int limit, int page);           // POST???
     int getNumberOfTasks();
+    List<Task> getAllTasksByUserIDAndCurrentDate(int userID);
+
 }

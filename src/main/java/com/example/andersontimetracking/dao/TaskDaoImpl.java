@@ -119,4 +119,24 @@ public class TaskDaoImpl implements TaskDao {
         }
         return count;
     }
+
+    @Override
+    public List<Task> getAllTasksByUserIDAndCurrentDate(int userID) {
+        List<Task> userTasks = new ArrayList<>();
+        String getUserTasksSql = "SELECT description, date FROM public.tasks WHERE userid = ? AND date = CURRENT_DATE";
+        try (Connection connection = connector.getConnection();
+             PreparedStatement statement = connection.prepareStatement(getUserTasksSql)) {
+            statement.setInt(1, userID);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                String description = resultSet.getString("description");
+                LocalDate date = resultSet.getDate("date").toLocalDate();
+                Task task = new Task(userID, description, date);
+                userTasks.add(task);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return userTasks;
+    }
 }
