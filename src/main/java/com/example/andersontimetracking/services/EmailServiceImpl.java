@@ -1,11 +1,8 @@
 package com.example.andersontimetracking.services;
 
 import com.example.andersontimetracking.interfaces.EmailService;
-import com.example.andersontimetracking.interfaces.ReportGenerator;
-import com.example.andersontimetracking.util.ServiceLocator;
 import jakarta.activation.DataHandler;
 import jakarta.activation.DataSource;
-import jakarta.activation.FileDataSource;
 import jakarta.mail.*;
 import jakarta.mail.internet.*;
 import jakarta.mail.util.ByteArrayDataSource;
@@ -15,7 +12,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.file.Path;
 
 public class EmailServiceImpl implements EmailService {
     private final ReportProcessor reportGenerator;

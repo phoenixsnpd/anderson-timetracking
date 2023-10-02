@@ -22,7 +22,6 @@ public final class ServiceLocator {
         services.put(TaskDao.class, TaskDaoImpl.class);
         services.put(UserDao.class, UserDaoImpl.class);
         services.put(TelegramChatDao.class, TelegramChatDaoImpl.class);
-
     }
     private ServiceLocator(){
 
@@ -42,3 +41,4 @@ public final class ServiceLocator {
     }
 
 }
+

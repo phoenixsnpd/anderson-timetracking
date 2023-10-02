@@ -11,7 +11,7 @@ import java.util.Properties;
 public interface EmailService {
     String FROM = "juanmvcproject@gmail.com";
     String PASSWORD = "vuoilgkedltuysif";
-    String TO = "taliyevcode@gmail.com";
+    String TO = "yurashmorgun@gmail.com";
 
     default Session getSession() {
         Properties properties = PropertiesUtil.getEmailProperties();
